@@ -7,7 +7,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,17 +33,13 @@ class _MyHomePageState extends State<MyHomePage> {
   String enteredText = '';
   String targetText = '';
 
-  void _incrementCounter() {
-    setState(() {});
-  }
-
-  void _setText(){
+  void _setText() {
     setState(() {
-      final List<String> strList = enteredText.split(' ');
+      final strList = enteredText.split(' ');
       targetText = '';
 
       for (var str in strList) {
-        if (str.isEmpty){
+        if (str.isEmpty) {
           continue;
         }
 
@@ -70,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  List<String> strNumbers = [
+  static const List<String> strNumbers = [
     'zero',
     'one',
     'two',
@@ -103,26 +98,26 @@ class _MyHomePageState extends State<MyHomePage> {
               child: TextField(
                 controller: textController,
                 decoration: const InputDecoration(
-                    border: OutlineInputBorder(), hintText: 'Enter ...',),
+                  border: OutlineInputBorder(),
+                  hintText: 'Enter ...',
+                ),
                 onChanged: (inputText) {
                   enteredText = inputText;
                 },
               ),
             ),
             ElevatedButton(
-                onPressed: _setText,
-                style: ButtonStyle(
-                    elevation: MaterialStateProperty.all(8),
-                    backgroundColor: MaterialStateProperty.all(
-                        const Color.fromARGB(255, 215, 222, 250),),),
-                child: const Text('Submit'),),
+              onPressed: _setText,
+              style: ButtonStyle(
+                elevation: MaterialStateProperty.all(8),
+                backgroundColor: MaterialStateProperty.all(
+                  const Color.fromARGB(255, 215, 222, 250),
+                ),
+              ),
+              child: const Text('Submit'),
+            ),
           ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
       ),
     );
   }
