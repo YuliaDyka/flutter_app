@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
         useMaterial3: true,
       ),
       home: const NavigationExample(),
@@ -55,8 +55,23 @@ class _NavigationExampleState extends State<NavigationExample> {
   Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.deepPurple,
-        title: const Text('_NavigationExampleState'),
+        backgroundColor: Colors.lightGreen.shade300,
+        title: const Text('Family Budget'),
+        actions: <Widget>[
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute<MyApp>(builder: (BuildContext context)
+                  => const MyApp(),),
+                );
+            },
+            style: ElevatedButton.styleFrom(
+              foregroundColor: Colors.white, backgroundColor: Colors.red[400],
+            ),
+            child: const Text('Logout'),
+          ),
+        ],
       ),
       // body: Center(
       //   child: widgetOptions.elementAt(selectedIndex),
@@ -68,18 +83,18 @@ class _NavigationExampleState extends State<NavigationExample> {
                Column(
                 //mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Align(
+                  const Align(
                     alignment: Alignment.centerLeft,
-                    child: ElevatedButton(
-                    child: const Text('Go back!'),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute<MyApp>(builder: (BuildContext context)
-                        => const MyApp(),),
-                      );
-                    },
-                  ),
+                  //   child: ElevatedButton(
+                  //   child: const Text('Go back!'),
+                  //   onPressed: () {
+                  //     Navigator.push(
+                  //       context,
+                  //       MaterialPageRoute<MyApp>(builder: (BuildContext context)
+                  //       => const MyApp(),),
+                  //     );
+                  //   },
+                  // ),
                   ),
                   Expanded(
                     child: Center(
