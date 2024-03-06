@@ -1,31 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:lab1/main.dart';
+import 'package:lab1/pages/login-page.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightGreen),
-        useMaterial3: true,
-      ),
-      home: const NavigationExample(),
-    );
-  }
+  State<HomePage> createState() => _HomePageState();
 }
 
-class NavigationExample extends StatefulWidget {
-  const NavigationExample({super.key});
-
-  @override
-  State<NavigationExample> createState() => _NavigationExampleState();
-}
-
-class _NavigationExampleState extends State<NavigationExample> {
+class _HomePageState extends State<HomePage> {
   int selectedIndex = 0;
 
   void onItemTapped(int index) {
@@ -45,8 +28,8 @@ class _NavigationExampleState extends State<NavigationExample> {
             onPressed: () {
               Navigator.push(
                 context,
-                MaterialPageRoute<MyApp>(
-                  builder: (BuildContext context) => const MyApp(),
+                MaterialPageRoute<LoginPage>(
+                  builder: (BuildContext context) => const LoginPage(),
                 ),
               );
             },
@@ -98,9 +81,9 @@ class _NavigationExampleState extends State<NavigationExample> {
                             ),
                             const Text(
                               'This is home page. Here will be all'
-                              ' information about your budget, your incomes '
-                              'and outcomes. Bellow is the pie-chart to see'
-                              ' your every day progress:',
+                                  ' information about your budget, your incomes '
+                                  'and outcomes. Bellow is the pie-chart to see'
+                                  ' your every day progress:',
                               style: TextStyle(fontSize: 16),
                             ),
                             const SizedBox(
@@ -117,7 +100,7 @@ class _NavigationExampleState extends State<NavigationExample> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 IconButton(icon: const Icon(Icons.arrow_back_ios_sharp),
-                                onPressed: (){},),
+                                  onPressed: (){},),
                                 IconButton(icon: const Icon(Icons.arrow_forward_ios_sharp),
                                   onPressed: (){},),
                               ],
@@ -302,75 +285,75 @@ class _NavigationExampleState extends State<NavigationExample> {
           child: Column(
             children: <Widget> [
               Padding(
-                  padding: const EdgeInsets.all(15),
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 20,),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          const Icon(Icons.perm_contact_calendar_outlined, size: 140,),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text('User name:', style: TextStyle(fontSize: 15, color:Colors.green.withOpacity(0.6)),  ),
-                              const Text('YuliaDyka', style: TextStyle(fontSize: 17, ),  ),
-                              Text('email:', style: TextStyle(fontSize: 15, color:Colors.green.withOpacity(0.6)),  ),
-                              const Text('example@gmail.com', style: TextStyle(fontSize: 17, ),  ),
-                            ],
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  children: [
+                    const SizedBox(height: 20,),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const Icon(Icons.perm_contact_calendar_outlined, size: 140,),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('User name:', style: TextStyle(fontSize: 15, color:Colors.green.withOpacity(0.6)),  ),
+                            const Text('YuliaDyka', style: TextStyle(fontSize: 17, ),  ),
+                            Text('email:', style: TextStyle(fontSize: 15, color:Colors.green.withOpacity(0.6)),  ),
+                            const Text('example@gmail.com', style: TextStyle(fontSize: 17, ),  ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    Column(
+
+                      children: [
+                        const SizedBox(height: 100,),
+                        Container(
+                          height: 100,
+                          width: 400,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.lightGreen[400],
+
                           ),
-                        ],
-                      ),
-                      Column(
-
-                        children: [
-                          const SizedBox(height: 100,),
-                          Container(
-                            height: 100,
-                            width: 400,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: Colors.lightGreen[400],
-                              
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(20),
-                              child: Column(
-                                children: [
-                                  Text('Your current balance: \$10000', style: TextStyle(
-                                      fontSize: 15, color: Colors.green[800],fontWeight: FontWeight.bold, ),),
-                                  const SizedBox(height: 25,),
-                                  const Text('Some very important tex..', style: TextStyle(fontSize: 10),),
-                                ],
-                              ),
-                            ),
-                          ),
-                          const SizedBox(height: 15,),
-                          Container(
-                            height: 40,
-                            width: 400,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(30),
-                              color: Colors.lightGreen[200],
-                            ),
-
-                            child: const Padding(
-
-                              padding: EdgeInsets.all(7),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Icon(Icons.add),
-                                  Text('Add new card'),
-                                ],
-                              ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(20),
+                            child: Column(
+                              children: [
+                                Text('Your current balance: \$10000', style: TextStyle(
+                                  fontSize: 15, color: Colors.green[800],fontWeight: FontWeight.bold, ),),
+                                const SizedBox(height: 25,),
+                                const Text('Some very important text..', style: TextStyle(fontSize: 10),),
+                              ],
                             ),
                           ),
-                        ],
-                      ),
-                    ],
-                  ),
+                        ),
+                        const SizedBox(height: 15,),
+                        Container(
+                          height: 40,
+                          width: 400,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30),
+                            color: Colors.lightGreen[200],
+                          ),
+
+                          child: const Padding(
+
+                            padding: EdgeInsets.all(7),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(Icons.add),
+                                Text('Add new card'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
