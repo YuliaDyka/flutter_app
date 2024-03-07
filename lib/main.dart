@@ -1,8 +1,8 @@
 // import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:lab1/pages/home-page.dart';
-import 'package:lab1/pages/login-page.dart';
-import 'package:lab1/pages/register-page.dart';
+import 'package:lab1/pages/home_page.dart';
+import 'package:lab1/pages/login_page.dart';
+import 'package:lab1/pages/register_page.dart';
 
 
 void main() {
