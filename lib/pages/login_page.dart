@@ -16,12 +16,11 @@ class _LoginPageState extends State<LoginPage> {
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text('Log in'),
+        automaticallyImplyLeading: false,
       ),
-      body: const SingleChildScrollView(
-        child: Center(
+      body: const Center(
           child: LoginContainer(),
         ),
-      ),
     );
   }
 }

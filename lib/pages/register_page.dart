@@ -15,11 +15,10 @@ class _RegisterPage extends State<RegisterPage> {
       appBar: AppBar(
         backgroundColor: Colors.lightGreen.shade300,
         title: const Text('Register new User'),
+        automaticallyImplyLeading: false,
       ),
-      body: const SingleChildScrollView(
-        child: Center(
-          child: RegisterContainer(),
-        ),
+      body: const Center(
+        child: RegisterContainer(),
       ),
     );
   }

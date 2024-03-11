@@ -41,7 +41,7 @@ class _CurrentDayState extends State<CurrentDay> {
                 ),
                 padding: const EdgeInsets.symmetric(
                   vertical: 8,
-                  horizontal: 14,
+                  horizontal: 13,
                 ),
                 child: const Column(
                   children: [
@@ -99,7 +99,7 @@ class _CurrentDayState extends State<CurrentDay> {
                 ),
                 padding: const EdgeInsets.symmetric(
                   vertical: 8,
-                  horizontal: 14,
+                  horizontal: 13,
                 ),
                 child: const Column(
                   children: [
@@ -118,7 +118,7 @@ class _CurrentDayState extends State<CurrentDay> {
                 ),
                 padding: const EdgeInsets.symmetric(
                   vertical: 8,
-                  horizontal: 12,
+                  horizontal: 11,
                 ),
                 child: const Column(
                   children: [
@@ -137,7 +137,7 @@ class _CurrentDayState extends State<CurrentDay> {
                 ),
                 padding: const EdgeInsets.symmetric(
                   vertical: 8,
-                  horizontal: 12,
+                  horizontal: 11,
                 ),
                 child: const Column(
                   children: [
@@ -156,7 +156,7 @@ class _CurrentDayState extends State<CurrentDay> {
                 ),
                 padding: const EdgeInsets.symmetric(
                   vertical: 8,
-                  horizontal: 12,
+                  horizontal: 11,
                 ),
                 child: const Column(
                   children: [
@@ -175,7 +175,7 @@ class _CurrentDayState extends State<CurrentDay> {
                 ),
                 padding: const EdgeInsets.symmetric(
                   vertical: 8,
-                  horizontal: 12,
+                  horizontal: 11,
                 ),
                 child: const Column(
                   children: [

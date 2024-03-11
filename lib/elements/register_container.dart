@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:lab1/pages/home_page.dart';
 import 'package:lab1/pages/login_page.dart';
@@ -12,141 +13,163 @@ class RegisterContainer extends StatefulWidget {
 class _RegisterContainerState extends State<RegisterContainer> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        const SizedBox(
-          height: 120,
-        ),
-        Container(
-          width: 265,
-          height: 440,
-          decoration: BoxDecoration(
-            color: Colors.lightGreen[50],
-            borderRadius: BorderRadius.circular(40),
+    final mediaQuery = MediaQuery.of(context);
+    final minSize = min(mediaQuery.size.width, mediaQuery.size.height);
+    final maxSize = max(mediaQuery.size.width, mediaQuery.size.height);
+
+    final List<Widget> children = [];
+    children.add(
+      Icon(
+        Icons.person,
+        size: minSize * 0.1,
+      ),
+    );
+    children.add(
+      TextField(
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: mediaQuery.size.width * 0.03,
           ),
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              children: [
-                const Icon(
-                  Icons.person,
-                  size: 45,
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 15,
-                    ),
-                    // background: Colors.white,
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(width: 2),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    hintText: 'user name..',
+          // background: Colors.white,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          hintText: 'username..',
+        ),
+      ),
+    );
+    children.add(
+      TextField(
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: mediaQuery.size.width * 0.03,
+          ),
+          // background: Colors.white,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          hintText: 'email..',
+        ),
+      ),
+    );
+
+    children.add(
+      TextField(
+        obscureText: true,
+        //style: TextStyle(fontSize: minSize * 0.0425),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: mediaQuery.size.width * 0.03,
+          ),
+          // background: Colors.white,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          hintText: 'password..',
+        ),
+      ),
+    );
+    children.add(
+      TextField(
+        obscureText: true,
+        //style: TextStyle(fontSize: minSize * 0.0425),
+        decoration: InputDecoration(
+          contentPadding: EdgeInsets.symmetric(
+            horizontal: mediaQuery.size.width * 0.03,
+          ),
+          // background: Colors.white,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+          hintText: 'confirm password..',
+        ),
+      ),
+    );
+
+    children.add(
+      Row(
+        children: [
+          SizedBox(
+            height: mediaQuery.size.height * 0.1,
+          ),
+          Expanded(
+            child: ElevatedButton(
+              style: ButtonStyle(
+                textStyle: MaterialStateProperty.all(
+                  TextStyle(
+                    fontSize: maxSize * 0.025,
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 15,
-                    ),
-                    // background: Colors.white,
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(width: 2),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    hintText: 'email..',
+              ),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<HomePage>(
+                    builder: (BuildContext context) => const HomePage(),
                   ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 15,
-                    ),
-                    // background: Colors.white,
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(width: 2),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    hintText: 'password..',
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                TextField(
-                  obscureText: true,
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                      vertical: 10,
-                      horizontal: 15,
-                    ),
-                    // background: Colors.white,
-                    border: OutlineInputBorder(
-                      borderSide: const BorderSide(width: 2),
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    hintText: 'confirm password..',
-                  ),
-                ),
-                const SizedBox(
-                  height: 10,
-                ),
-                ElevatedButton(
-                  style: ButtonStyle(
-                    textStyle: MaterialStateProperty.all(const TextStyle(fontSize: 15)),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute<HomePage>(
-                        builder: (BuildContext context) => const HomePage(),
-                      ),
-                    );
-                  },
-                  child: const Text('Register'),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Already have an account?',
-                      style: TextStyle(fontSize: 12),
-                    ),
-                    TextButton(
-                      style: ButtonStyle(
-                        textStyle: MaterialStateProperty.all(const TextStyle(fontSize: 13)),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute<LoginPage>(
-                            builder: (BuildContext context) => const LoginPage(),
-                          ),
-                        );
-                      },
-                      child: const Text('Log In'),
-                    ),
-                  ],
-                ),
-              ],
+                );
+              },
+              child: const Text('Register'),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
+
+    children.add(
+      Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Already have an account?',
+            style: TextStyle(
+              fontSize: maxSize * 0.02,
+            ),
+          ),
+          TextButton(
+            style: ButtonStyle(
+              textStyle: MaterialStateProperty.all(
+                TextStyle(
+                  fontSize: maxSize * 0.02,
+                ),
+              ),
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<LoginPage>(
+                  builder: (BuildContext context) => const LoginPage(),
+                ),
+              );
+            },
+            child: const Text('Log in'),
+          ),
+        ],
+      ),
+    );
+
+    final mainColumn = Column(
+      //mainAxisSize: MainAxisSize.min,
+      children: children
+          .map(
+            (e) => Padding(
+              padding: const EdgeInsets.all(3),
+              child: e,
+            ),
+          )
+          .toList(),
+    );
+
+    final mainContainer = Container(
+      padding: EdgeInsets.all(minSize * 0.03),
+      width: mediaQuery.size.width * 0.8,
+      decoration: BoxDecoration(
+        color: Colors.lightGreen[200],
+        borderRadius: BorderRadius.circular(40),
+      ),
+      child: mainColumn,
+    );
+
+    return SingleChildScrollView(child: mainContainer);
   }
 }
