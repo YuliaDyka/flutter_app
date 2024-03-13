@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lab1/elements/login_container.dart';
+import 'package:lab1/elements/register_and_login/login_controller.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
-
-  @override
-  State<LoginPage> createState() => _LoginPageState();
-}
-
-class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
