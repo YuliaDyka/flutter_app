@@ -23,7 +23,7 @@ class CustomElevatedButton extends StatelessWidget{
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: ( BuildContext context) =>
+          MaterialPageRoute<void>(builder: ( BuildContext context) =>
           destinationPage,),
         );
       },

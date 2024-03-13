@@ -6,7 +6,8 @@ class CustomTextButton extends StatelessWidget{
   final String buttonText;
   final Widget destinationPage;
 
-  const CustomTextButton({required this.buttonText, required this.destinationPage, super.key});
+  const CustomTextButton({required this.buttonText,
+    required this.destinationPage, super.key,});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +24,8 @@ class CustomTextButton extends StatelessWidget{
       onPressed: () {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: ( BuildContext context) =>
-          destinationPage),
+          MaterialPageRoute<void>(builder: ( BuildContext context) =>
+          destinationPage,),
         );
       },
       child: Text(buttonText),
